@@ -18,8 +18,13 @@ public class Main {
         Instruction instruction = new Instruction();
         System.out.println("Press any key for starting the program");
         key = sc.nextLine();
-        if(key!=null)
-        instruction.readInstructions();
+        if(key!=null) {
+            instruction.readInstructions();
+        }
+        //Records saved in mysql
+        System.out.println("\nDO YOU WANT TO KNOW PREVIOUS RESULTS");
+        String accessToRecords = sc.next();
+        connect.readSql(accessToRecords);
 
         //Adding players Team  A and B
         logic.textPlayersA();
@@ -29,7 +34,6 @@ public class Main {
         logic.enterPlayerName();
         String playersNameA = sc.nextLine();
         logic.addPlayerA(playersNameA, tA, amountOfPlayersA);
-
         //////////////////////////////////
         logic.textPlayersB();
         int amountOfPlayersB = sc.nextInt();
@@ -85,8 +89,3 @@ public class Main {
                 }
         }
 }
-
-
-
-
-
